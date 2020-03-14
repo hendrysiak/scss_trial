@@ -1,10 +1,19 @@
 @import './media-mixins';
+@import './variables';
 * {
     font-size: 20px;
+    font-family: $font-family;
+    color: $standard-color;
 }
 
 body {
+
     padding: 20px;
+    position: absolute;
+    text-align: center;
+    p{
+        margin: 0;
+    }
 }
 
 p {
@@ -12,7 +21,10 @@ p {
 }
 
 a {
-    font-size: 1em
+    font-size: 1em;
+    @media (map-get($breakpoints, large)){
+        font-size: 0.67em;
+    }
 }
 
 @media (map-get($breakpoints, small)) {

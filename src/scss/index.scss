@@ -2,17 +2,6 @@
 @import './normalize';
 @import './standarize';
 @import './header.scss';
-$font-family: "Roboto Condensed";
+@import './main.scss';
 
-body{
-    position: absolute;
-    text-align: center;
-}
-body p {
-    margin: 0;
-}
-a{
-    @media (map-get($breakpoints, large)){
-        font-size: 0.67em;
-    }
-}
+

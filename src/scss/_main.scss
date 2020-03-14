@@ -1,0 +1,23 @@
+@import './pseudo-elements-mixins';
+
+.main{
+  &__about{
+    margin-top: -60px;
+  }
+  &__subtitle{
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 100;
+    &::before{
+      @include pseudo-element;
+      width: 70px;
+      margin: 0 auto;
+      left: 50%;
+      bottom: -10px;
+      transform: scale(1,1) translateX(-50%);
+    }
+  }
+  &__sentence{
+    padding: 20px 5px;
+  }
+}

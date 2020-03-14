@@ -1,0 +1,11 @@
+@mixin pseudo-element{
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: $hover-color;
+  transform-origin: 0 50%;
+  transition: .3s;
+}
