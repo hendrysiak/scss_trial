@@ -1,0 +1,22 @@
+@import './media-mixins';
+* {
+    font-size: 20px;
+}
+
+body {
+    padding: 20px;
+}
+
+p {
+    font-size: .67em
+}
+
+a {
+    font-size: 1em
+}
+
+@media (map-get($breakpoints, small)) {
+    * {
+        font-size: 24px;
+    }
+}
