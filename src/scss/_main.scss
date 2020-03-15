@@ -1,4 +1,5 @@
 @import './pseudo-elements-mixins';
+@import './variables';
 
 .main{
   &__about{
@@ -20,4 +21,174 @@
   &__sentence{
     padding: 20px 5px;
   }
+}
+
+.tiles{
+  display: grid;
+  width: 100%;
+  grid-template-areas: 
+    "html"
+    "css "
+    "javascript"
+    "wordpress"
+    "wordpress"  
+    "wordpress"  
+    "gulp"
+    "sass";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, $grid-height);
+  grid-gap: 2vw;
+
+  @media (map-get($breakpoints, medium)) {
+  grid-template-areas: 
+    "html html"
+    "css javascript"
+    "wordpress wordpress"
+    "wordpress wordpress"
+    "wordpress wordpress"
+    "wordpress wordpress"
+    "gulp gulp"
+    "sass sass";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, $grid-height);
+  grid-gap: 2vw;
+}
+
+  @media (map-get($breakpoints, large)) {
+  grid-template-areas: 
+    "html html wordpress"
+    "css javascript wordpress"
+    "gulp gulp sass";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, $grid-height);
+  grid-gap: 2vw;
+}
+  :nth-child(1){
+    grid-area: html;
+    width: 100%;
+  }
+  
+  :nth-child(2){
+    grid-area: css;
+    width: 100%;
+  }
+  :nth-child(3){
+    grid-area: javascript;
+    width: 100%;
+  }
+  :nth-child(4){
+    grid-area: wordpress;
+    width: 100%;
+  }
+  :nth-child(5){
+    grid-area: gulp;
+    width: 100%;
+  }
+  :nth-child(6){
+    grid-area: sass;
+    width: 100%;
+  }
+
+  &__tile{
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    img{
+      display: block;
+        height: 100%;
+        width: auto;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0;
+        transition: 1s;
+      }
+      &:hover{
+        .tiles__head:before{
+          left: -20px;
+          top: -20px
+        }
+        .tiles__head:after{
+          right: -20px;
+          top: -20px
+        }
+        .tiles__additional:before{
+          left: -20px;
+          bottom: -20px
+        }
+        .tiles__additional:after{
+          right: -20px;
+          bottom: -20px
+        }
+        &:before{
+          opacity: .7;
+        }
+  
+      }
+    }
+    &__info{
+      position: absolute;
+      min-width: 200px;
+      max-width: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      transition: 1s;
+      cursor: pointer;
+
+      &:before{
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        top: calc(50% +2px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+      }
+    }
+    &__head{
+      width: 200px;
+      height: 44px;
+      position: relative;
+      display: block;
+      line-height: 44px;
+      &:before{
+        @include top;
+        left: 0;
+        border-left: 2px solid white;
+      }
+      &:after{
+        @include top;
+        right: 0;
+        border-right: 2px solid white;
+      }
+    }
+    &__additional{
+      width: 200px;
+      height: 44px;
+      position: relative;
+      display: block;
+      line-height: 44px;
+      &:before{
+        @include bottom;
+        left: 0;
+        border-left: 2px solid white;
+      }
+      &:after{
+        @include bottom;
+        right: 0;
+        border-right: 2px solid white;
+      }
+    }
 }

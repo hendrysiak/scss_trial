@@ -1,13 +1,10 @@
 @import './media-mixins';
 @import './variables';
-* {
+
+body {
     font-size: 20px;
     font-family: $font-family;
     color: $standard-color;
-}
-
-body {
-
     padding: 20px;
     position: absolute;
     text-align: center;
