@@ -21,6 +21,28 @@
   &__sentence{
     padding: 20px 5px;
   }
+  &__contact{
+    padding-top: 30px;
+    height: 80vh;
+    position: relative;
+    h2{
+      margin-bottom: 20px;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      background: url("https://image.ibb.co/h9qYHA/bg-video.png");
+      background-size: cover;
+      opacity: .3;
+      filter: grayscale(100%);
+      z-index: -1;
+    }
+  }
 }
 
 .tiles{
@@ -191,4 +213,48 @@
         border-right: 2px solid white;
       }
     }
+}
+
+.form{
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 600px;
+  p{
+    margin-bottom: 20px;
+  }
+  input{
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 0.5em;
+    border: 1px solid $hover-color;
+  }
+  textarea{
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 0.5em;
+    border: 1px solid $hover-color;
+  }
+  &__button{
+    width: 30%;
+    padding: 5px;
+    align-self: center;
+    border: none;
+    background-color: $hover-color;
+    text-transform: uppercase;
+    color: white;
+    transition: .5s;
+    &:hover{
+      background-color: lighten($hover-color, 10%);
+    }
+  }
+  &__footer{
+  @media (map-get($breakpoints, large)) {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  }
 }
